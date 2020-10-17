@@ -12,7 +12,7 @@ https://gabrielidsm-fretecorreios.herokuapp.com/
 
 ```
 {
-  	"servico":"41106",
+    "servico":"41106",
     "cepOrigem":"25943509",
     "cepDestino":"25555100",
     "formato":"1",
