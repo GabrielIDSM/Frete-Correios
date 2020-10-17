@@ -24,16 +24,37 @@ public abstract class CalculaFrete {
     public static Response calculaFrete(Request request) {
         //Instância da resposta
         Response response = new Response();
+        
+        /*
+        Valores de nCdServico
+	40010 SEDEX sem contrato 
+        40045 SEDEX a Cobrar, sem contrato 
+        40126 SEDEX a Cobrar, com contrato 
+        40215 SEDEX 10, sem contrato 
+        40290 SEDEX Hoje, sem contrato
+        40096 SEDEX com contrato 
+        40436 SEDEX com contrato
+	40444 SEDEX com contrato 
+        40568 SEDEX com contrato 
+        40606 SEDEX com contrato 
+        41106 PAC sem contrato 
+        41068 PAC com contrato 
+        81019 e-SEDEX, com contrato 
+        81027 e-SEDEX Prioritário, com conrato 
+        81035 e-SEDEX Express, com contrato 
+        81868 (Grupo 1) e-SEDEX, com contrato 
+        81833 (Grupo 2) e-SEDEX, com contrato 
+        81850 (Grupo 3) e-SEDEX, com contrato
+        */
 
         //Atributos
         String nCdEmpresa = "";
         String sDsSenha = "";
-        String nCdServico = "41106"; //O tipo de envio é fixo: PAC - 41106
-        String tipo = "PAC"; //O tipo de envio é fixo: PAC - 41106
+        String nCdServico = request.getServico();
         String sCepOrigem = request.getCepOrigem();
         String sCepDestino = request.getCepDestino();
         String nVlPeso = Float.toString(request.getPeso());
-        String nCdFormato = "1"; //
+        String nCdFormato = request.getFormato(); //Pacote ou caixa - 1
         String nVlComprimento = Float.toString(request.getComprimento());
         String nVlAltura = Float.toString(request.getAltura());
         String nVlLargura = Float.toString(request.getLargura());
